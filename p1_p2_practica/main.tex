@@ -1,0 +1,600 @@
+\documentclass[12pt,a4paper]{article}
+
+% Paquetes básicos
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{hyperref}
+
+% Configuración de página
+\geometry{left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm}
+
+% Colores
+\definecolor{primary}{RGB}{0,102,204}
+\hypersetup{colorlinks=true, linkcolor=primary, urlcolor=primary}
+
+% Encabezado
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\leftmark}
+\fancyhead[R]{\thepage/\pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% Comandos personalizados
+\newcommand{\xor}{\oplus}
+\newcommand{\xnor}{\odot}
+
+\begin{document}
+
+% Portada
+\begin{titlepage}
+\begin{center}
+
+\vspace*{2cm}
+
+{\Huge\bfseries Arquitectura de Computadoras}
+
+\vspace{1cm}
+
+{\Large\itshape Soluciones de Practicas}
+
+\vspace{2cm}
+
+\begin{tabular}{rl}
+\textbf{Materia:} & Arquitectura de Computadoras \\
+\textbf{Cuatrimestre:} & 2026 \\
+\textbf{Fecha:} & \today
+\end{tabular}
+
+\vfill
+
+{\large Basado en el libro: Stallings - Arquitectura y Organizacion de Computadores}
+
+\vspace{2cm}
+
+\end{center}
+\end{titlepage}
+
+% Indice
+\tableofcontents
+\newpage
+
+% Contenido
+\section{Introduccion}
+Este documento contiene las soluciones detalladas de las practicas de Arquitectura de Computadoras.
+
+\section{Practica 1: Representacion de la Informacion}
+
+\subsection{Conversion de bases numericas}
+
+\subsubsection{Ejercicio 1.1: $(25,75)_{10}$ a base 2}
+
+\begin{minipage}[t]{0.48\textwidth}
+\textbf{Parte entera (25):}
+\begin{verbatim}
+25 ÷ 2 = 12 R 1 ↑
+12 ÷ 2 = 6  R 0 |
+6  ÷ 2 = 3  R 0 |
+3  ÷ 2 = 1  R 1 |
+1  ↓ 2 = 0  R 1 |
+         = 11001
+\end{verbatim}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\textbf{Parte fraccionaria (0,75):}
+\begin{verbatim}
+0,75 × 2 = 1,50 → 1
+0,50 × 2 = 1,00 → 1
+         = 0,11
+\end{verbatim}
+\end{minipage}
+
+\vspace{0.3cm}
+\textbf{Resultado:} $(25,75)_{10} = (11001,11)_2$
+
+\subsubsection{Ejercicio 1.2: $(14,16)_{10}$ a base 2}
+
+\begin{minipage}[t]{0.48\textwidth}
+\textbf{Parte entera (14):}
+\begin{verbatim}
+14 ÷ 2 = 7 R 0 ↑
+7  ÷ 2 = 3 R 1 |
+3  ÷ 2 = 1 R 1 |
+1  ↓ 2 = 0 R 1 |
+         = 1110
+\end{verbatim}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\textbf{Parte fraccionaria (0,16):}
+\begin{verbatim}
+0,16 × 2 = 0,32 → 0
+0,32 × 2 = 0,64 → 0
+0,64 × 2 = 1,28 → 1
+0,28 × 2 = 0,56 → 0
+0,56 × 2 = 1,12 → 1
+           0,00101
+\end{verbatim}
+\end{minipage}
+
+\vspace{0.3cm}
+\textbf{Resultado:} $(14,16)_{10} \approx (1110,00101)_2$ (periódico)
+
+\subsubsection{Ejercicio 1.3: $(7,90)_{10}$ a base 2}
+
+\begin{minipage}[t]{0.48\textwidth}
+\textbf{Parte entera (7):}
+\begin{verbatim}
+7 ÷ 2 = 3 R 1 ↑
+3 ÷ 2 = 1 R 1 |
+1 ↓ 2 = 0 R 1 |
+        = 111
+\end{verbatim}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\textbf{Parte fraccionaria (0,90):}
+\begin{verbatim}
+0,90 × 2 = 1,80 → 1
+0,80 × 2 = 1,60 → 1
+0,60 × 2 = 1,20 → 1
+0,20 × 2 = 0,40 → 0
+0,40 × 2 = 0,80 → 0 (ciclo)
+           0,11100
+\end{verbatim}
+\end{minipage}
+
+\vspace{0.3cm}
+\textbf{Resultado:} $(7,90)_{10} \approx (111,11100)_2$ (periódico)
+
+\subsubsection{Ejercicio 1.4: $(48,25)_{10}$ a base 2}
+
+\begin{minipage}[t]{0.48\textwidth}
+\textbf{Parte entera (48):}
+\begin{verbatim}
+48 ÷ 2 = 24 R 0 ↑
+24 ÷ 2 = 12 R 0 |
+12 ÷ 2 = 6  R 0 |
+6  ÷ 2 = 3  R 0 |
+3  ÷ 2 = 1  R 1 |
+1  ↓ 2 = 0  R 1 |
+         = 110000
+\end{verbatim}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\textbf{Parte fraccionaria (0,25):}
+\begin{verbatim}
+0,25 × 2 = 0,50 → 0
+0,50 × 2 = 1,00 → 1
+         = 0,01
+\end{verbatim}
+\end{minipage}
+
+\vspace{0.3cm}
+\textbf{Resultado:} $(48,25)_{10} = (110000,01)_2$
+
+\subsubsection{Ejercicio 1.5: $(23,125)_{10}$ a base 2}
+
+\begin{minipage}[t]{0.48\textwidth}
+\textbf{Parte entera (23):}
+\begin{verbatim}
+23 ÷ 2 = 11 R 1 ↑
+11 ÷ 2 = 5  R 1 |
+5  ÷ 2 = 2  R 1 |
+2  ÷ 2 = 1  R 0 |
+1  ↓ 2 = 0  R 1 |
+         = 10111
+\end{verbatim}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\textbf{Parte fraccionaria (0,125):}
+\begin{verbatim}
+0,125 × 2 = 0,250 → 0
+0,250 × 2 = 0,500 → 0
+0,500 × 2 = 1,000 → 1
+          = 0,001
+\end{verbatim}
+\end{minipage}
+
+\vspace{0.3cm}
+\textbf{Resultado:} $(23,125)_{10} = (10111,001)_2$
+
+\subsubsection{Ejercicio 1.6: $(51,70)_{10}$ a base 2}
+
+\begin{minipage}[t]{0.48\textwidth}
+\textbf{Parte entera (51):}
+\begin{verbatim}
+51 ÷ 2 = 25 R 1 ↑
+25 ÷ 2 = 12 R 1 |
+12 ÷ 2 = 6  R 0 |
+6  ÷ 2 = 3  R 0 |
+3  ÷ 2 = 1  R 1 |
+1  ↓ 2 = 0  R 1 |
+         = 110011
+\end{verbatim}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\textbf{Parte fraccionaria (0,70):}
+\begin{verbatim}
+0,70 × 2 = 1,40 → 1
+0,40 × 2 = 0,80 → 0
+0,80 × 2 = 1,60 → 1
+0,60 × 2 = 1,20 → 1
+0,20 × 2 = 0,40 → 0
+           0,10110
+\end{verbatim}
+\end{minipage}
+
+\vspace{0.3cm}
+\textbf{Resultado:} $(51,70)_{10} \approx (110011,10110)_2$ (periodico)
+
+\subsection{Numeros enteros signados}
+
+Rango C2 con $n$ bits: $[-2^{n-1}, 2^{n-1}-1]$
+
+\subsubsection{Ejercicio 2.1: $(23)_{10}$}
+
+6 bits (rango: $[-32, 31]$). $(23)_{10} = (010111)_2$
+
+\begin{tabular}{ll}
+Signo-Magnitud & $0|10111$ \\
+C1 & $010111$ \\
+C2 & $010111$ \\
+Exceso a 32 & $010111 + 100000 = 110111$
+\end{tabular}
+
+\subsubsection{Ejercicio 2.2: $(47)_{10}$}
+
+7 bits (rango: $[-64, 63]$). $(47)_{10} = (101111)_2$
+
+\begin{tabular}{ll}
+Signo-Magnitud & $0|101111$ \\
+C1 & $0101111$ \\
+C2 & $0101111$ \\
+Exceso a 64 & $0101111 + 1000000 = 1101111$
+\end{tabular}
+
+\subsubsection{Ejercicio 2.3: $(-14)_{10}$}
+
+5 bits (rango: $[-16, 15]$). $(14)_{10} = (1110)_2$
+
+\begin{tabular}{ll}
+Signo-Magnitud & $1|1110$ \\
+C1 & $10001$ (invertir 01110) \\
+C2 & $10010$ (C1 + 1) \\
+Exceso a 16 & $-14 + 16 = 2 = 00010$
+\end{tabular}
+
+\subsubsection{Ejercicio 2.4: $(-21)_{10}$}
+
+6 bits (rango: $[-32, 31]$). $(21)_{10} = (10101)_2$
+
+\begin{tabular}{ll}
+Signo-Magnitud & $1|10101$ \\
+C1 & $101010$ (invertir 010101) \\
+C2 & $101011$ (C1 + 1) \\
+Exceso a 32 & $-21 + 32 = 11 = 001011$
+\end{tabular}
+
+\subsubsection{Ejercicio 2.5: $(-27)_{10}$}
+
+6 bits (rango: $[-32, 31]$). $(27)_{10} = (11011)_2$
+
+\begin{tabular}{ll}
+Signo-Magnitud & $1|11011$ \\
+C1 & $100100$ (invertir 011011) \\
+C2 & $100101$ (C1 + 1) \\
+Exceso a 32 & $-27 + 32 = 5 = 000101$
+\end{tabular}
+
+\subsubsection{Ejercicio 2.6: $(213)_{10}$}
+
+9 bits (rango: $[-256, 255]$). $(213)_{10} = (11010101)_2$
+
+\begin{tabular}{ll}
+Signo-Magnitud & $0|11010101$ \\
+C1 & $011010101$ \\
+C2 & $011010101$ \\
+Exceso a 256 & $011010101 + 100000000 = 111010101$
+\end{tabular}
+
+\subsection{Punto flotante IEEE 754}
+
+Formato: 1 bit signo, 8 bits exponente (exceso 127), 23 bits mantisa
+
+\subsubsection{Ejercicio 3.1: $-1,010_2 \times 2^{-10}$}
+
+Signo: 1 (negativo)\\
+Exponente: $-10 + 127 = 117 = 01110101_2$\\
+Mantisa: $010$ (sin el 1 implicito)
+
+\textbf{Resultado:} 1 01110101 01000000000000000000000
+
+\subsubsection{Ejercicio 3.2: $0,001_2 \times 2^{-1}$}
+
+Normalizar: $1,0_2 \times 2^{-3} \times 2^{-1} = 1,0_2 \times 2^{-4}$\\
+Signo: 0\\
+Exponente: $-4 + 127 = 123 = 01111011_2$\\
+Mantisa: 0 (todos ceros)
+
+\textbf{Resultado:} 0 01111011 00000000000000000000000
+
+\subsubsection{Ejercicio 3.3: $1_2 \times 2^{-130}$}
+
+Exponente $-130 < -126$ (denormalizado). Desplazar mantisa 4 posiciones:
+
+$1,0_2 \times 2^{-130} = 1,0_2 \times 2^{-4} \times 2^{-126} = 0,0001_2 \times 2^{-126}$
+
+Signo: 0\\
+Exponente: 00000000 (denormalizado)\\
+Mantisa: $0001$ (sin 1 implicito)
+
+\textbf{Resultado:} 0 00000000 00010000000000000000000
+
+\subsubsection{Ejercicio 3.4: IEEE 754 a notacion cientifica}
+
+Dato: 0 11101011 0100...
+
+Signo: 0 (positivo)\\
+Exponente: $11101011_2 = 235_{10} \rightarrow 235 - 127 = 108$\\
+Mantisa: $1,0100_2$ (con 1 implicito)
+
+\textbf{Resultado:} $+1,0100_2 \times 2^{108}$
+
+\subsubsection{Ejercicio 3.5: IEEE 754 a notacion cientifica}
+
+Dato: 1 00000000 0101...
+
+Signo: 1 (negativo)\\
+Exponente: 00000000 (denormalizado)\\
+Mantisa: $0,0101_2$ (sin 1 implicito)\\
+Exponente real: $-126$
+
+\textbf{Resultado:} $-0,0101_2 \times 2^{-126}$
+
+\subsubsection{Ejercicio 3.6: IEEE 754 a notacion cientifica}
+
+Dato: 0 11111111 1010...
+
+Exponente: 11111111 = 255 (caso especial)\\
+Mantisa: 1010... (distinto de cero)
+
+\textbf{Resultado:} NaN (Not a Number)
+
+\subsubsection{Ejercicio 3.7: $-\infty$ a IEEE 754}
+
+Signo: 1 (negativo)\\
+Exponente: 11111111 (todo 1s)\\
+Mantisa: 00000000000000000000000 (todo 0s)
+
+\textbf{Resultado:} 1 11111111 00000000000000000000000
+
+\subsubsection{Ejercicio 3.8: NaN a IEEE 754}
+
+Exponente: 11111111 (todo 1s)\\
+Mantisa: cualquier valor distinto de cero
+
+\textbf{Resultado:} 0 11111111 10000000000000000000000 (ejemplo)
+
+\subsubsection{Ejercicio 3.9: $122 \times 10^3$ (base 10) a IEEE 754}
+
+$122 \times 10^3 = 122000_{10}$
+
+Convertir a binario: $122000 = 11101110010010000_2 = 1,1101110010010000_2 \times 2^{16}$
+
+Signo: 0\\
+Exponente: $16 + 127 = 143 = 10001111_2$\\
+Mantisa: $11011100100100000000000$
+
+\textbf{Resultado:} 0 10001111 11011100100100000000000
+
+\subsubsection{Ejercicio 3.10: $-25 \times 10^{-2}$ (base 10) a IEEE 754}
+
+$-25 \times 10^{-2} = -0,25_{10} = -0,01_2 = -1,0_2 \times 2^{-2}$
+
+Signo: 1\\
+Exponente: $-2 + 127 = 125 = 01111101_2$\\
+Mantisa: 0
+
+\textbf{Resultado:} 1 01111101 00000000000000000000000
+
+\subsubsection{Ejercicio 3.11: $1,01_2 \times 2^{-130}$}
+
+Exponente $-130 < -126$ (denormalizado). Desplazar 4 posiciones:
+
+$1,01_2 \times 2^{-4} \times 2^{-126} = 0,000101_2 \times 2^{-126}$
+
+Signo: 0\\
+Exponente: 00000000\\
+Mantisa: $000101$
+
+\textbf{Resultado:} 0 00000000 00010100000000000000000
+
+\subsubsection{Ejercicio 3.12: $-11,101_2$ a IEEE 754}
+
+$-11,101_2 = -1,1101_2 \times 2^1$
+
+Signo: 1\\
+Exponente: $1 + 127 = 128 = 10000000_2$\\
+Mantisa: $1101$
+
+\textbf{Resultado:} 1 10000000 11010000000000000000000
+
+\subsubsection{Ejercicio 3.13: $(23,125)_{10}$ a IEEE 754}
+
+$(23,125)_{10} = 10111,001_2 = 1,0111001_2 \times 2^4$
+
+Signo: 0\\
+Exponente: $4 + 127 = 131 = 10000011_2$\\
+Mantisa: $0111001$
+
+\textbf{Resultado:} 0 10000011 01110010000000000000000
+
+\subsubsection{Ejercicio 3.14: $-1,101_2 \times 2^{41}$}
+
+Signo: 1\\
+Exponente: $41 + 127 = 168 = 10101000_2$\\
+Mantisa: $101$
+
+\textbf{Resultado:} 1 10101000 10100000000000000000000
+
+\subsection{Aritmetica en C2 (5 bits)}
+
+Rango: $[-16, 15]$. Overflow: dos positivos dan negativo o dos negativos dan positivo.
+
+\begin{minipage}[t]{0.48\textwidth}
+\subsubsection{Ejercicio 4.1: $01111 + 01000$}
+\begin{verbatim}
+  01111 (+15)
++ 01000 (+8)
+---------
+  10111 (-9)
+\end{verbatim}
+\textbf{Resultado:} Overflow
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\subsubsection{Ejercicio 4.2: $01001 + 11000$}
+\begin{verbatim}
+  01001 (+9)
++ 11000 (-8)
+---------
+ 100001
+\end{verbatim}
+Descartar carry: $00001 = +1$\\
+\textbf{Resultado:} $+1$
+\end{minipage}
+
+\vspace{0.5cm}
+
+\begin{minipage}[t]{0.48\textwidth}
+\subsubsection{Ejercicio 4.3: $01000 - 00011$}
+Resta = suma C2: $01000 + 11101$
+\begin{verbatim}
+  01000 (+8)
++ 11101 (-3)
+---------
+ 100101
+\end{verbatim}
+Resultado: $00101 = +5$\\
+\textbf{Resultado:} $+5$
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\subsubsection{Ejercicio 4.4: $00111 - 10111$}
+$00111 + 01001$ (C2 de 10111)
+\begin{verbatim}
+  00111 (+7)
++ 01001 (+9)
+---------
+  10000 (-16)
+\end{verbatim}
+\textbf{Resultado:} Overflow
+\end{minipage}
+
+\vspace{0.5cm}
+
+\begin{minipage}[t]{0.48\textwidth}
+\subsubsection{Ejercicio 4.5: $11000 + 11101$}
+\begin{verbatim}
+  11000 (-8)
++ 11101 (-3)
+---------
+ 110101
+\end{verbatim}
+Resultado: $10101 = -11$\\
+\textbf{Resultado:} $-11$
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\subsubsection{Ejercicio 4.6: $00111 + 00011$}
+\begin{verbatim}
+  00111 (+7)
++ 00011 (+3)
+---------
+  01010 (+10)
+\end{verbatim}
+\textbf{Resultado:} $+10$
+\end{minipage}
+
+\vspace{0.5cm}
+
+\begin{minipage}[t]{0.48\textwidth}
+\subsubsection{Ejercicio 4.7: $10110 + 10111$}
+\begin{verbatim}
+  10110 (-10)
++ 10111 (-9)
+---------
+ 101101
+\end{verbatim}
+Resultado: $01101 = +13$\\
+\textbf{Resultado:} Overflow
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\subsubsection{Ejercicio 4.8: $11110 + 11101$}
+\begin{verbatim}
+  11110 (-2)
++ 11101 (-3)
+---------
+ 111011
+\end{verbatim}
+Resultado: $11011 = -5$\\
+\textbf{Resultado:} $-5$
+\end{minipage}
+
+\vspace{0.5cm}
+
+\begin{minipage}[t]{0.48\textwidth}
+\subsubsection{Ejercicio 4.9: $11111 + 01111$}
+\begin{verbatim}
+  11111 (-1)
++ 01111 (+15)
+---------
+ 101110
+\end{verbatim}
+Resultado: $01110 = +14$\\
+\textbf{Resultado:} $+14$
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\subsubsection{Ejercicio 4.10: $01101 - 01110$}
+$01101 + 10010$ (C2 de 01110)
+\begin{verbatim}
+  01101 (+13)
++ 10010 (-14)
+---------
+  11111 (-1)
+\end{verbatim}
+\textbf{Resultado:} $-1$
+\end{minipage}
+
+\vspace{0.5cm}
+
+\begin{minipage}[t]{0.48\textwidth}
+\subsubsection{Ejercicio 4.11}
+Falta enunciado en el PDF original.
+\end{minipage}
+
+\section{Practica 2: Logica Digital}
+
+\subsection{Minimizacion de funciones booleanas}
+
+% Agregar contenido aqui
+
+\subsection{Maquinas de estados finitos}
+
+% Agregar contenido aqui
+
+\end{document}
