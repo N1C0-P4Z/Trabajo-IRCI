@@ -30,6 +30,7 @@
 % Comandos personalizados
 \newcommand{\xor}{\oplus}
 \newcommand{\xnor}{\odot}
+\renewcommand{\contentsname}{Indice}
 
 \begin{document}
 
@@ -39,23 +40,29 @@
 
 \vspace*{2cm}
 
-{\Huge\bfseries Arquitectura de Computadoras}
+{\Huge\bfseries Instalacion y Reemplazo de Componentes Internos}
 
 \vspace{1cm}
 
-{\Large\itshape Soluciones de Practicas}
+{\Large\itshape Soluciones a las Practicas P1 y P2}
 
 \vspace{2cm}
 
-\begin{tabular}{rl}
-\textbf{Materia:} & Arquitectura de Computadoras \\
-\textbf{Cuatrimestre:} & 2026 \\
-\textbf{Fecha:} & \today
-\end{tabular}
+\textbf{Integrantes}
+
+\vspace{0.8cm}
+
+Nicolas Paz Reyes
+
+Martin Moloeznik
+
+Santiago Cañal
+
+Valentino Aviani
 
 \vfill
 
-{\large Basado en el libro: Stallings - Arquitectura y Organizacion de Computadores}
+{\Large\textbf{\today}}
 
 \vspace{2cm}
 
@@ -67,9 +74,6 @@
 \newpage
 
 % Contenido
-\section{Introduccion}
-Este documento contiene las soluciones detalladas de las practicas de Arquitectura de Computadoras.
-
 \section{Practica 1: Representacion de la Informacion}
 
 \subsection{Conversion de bases numericas}
@@ -769,33 +773,16 @@ O en notacion compacta: $Z = \Sigma(8,9,15)$
 
 \subsection{Minimizacion}
 
-Funcion canonica SOP $\rightarrow$ identificacion visual de grupos de minterms adyacentes para simplificar.
-
 \vspace{0.3cm}
 
-\begin{tabular}{|c|l|l|}
-\hline
-Ej. & Posiciones Z=1 & Resultado minimizado \\
-\hline
-3.1  & 2, 3, 5, 6 (3 vars)                    & $Z = A'B + BC' + AB'C$ \\
-3.2  & 0, 2, 4, 5, 6, 7, 8, 10, 15 (4 vars)  & $Z = A'B + B'D' + BCD$ \\
-3.3  & 5, 7, 8, 10, 12, 14, 21 (5 vars)       & $Z = A'BE' + A'B'CE + B'CD'E$ \\
-3.4  & 0, 1, 2, 3, 4, 6, 8, 9, 11, 15 (4 vars) & $Z = A'B' + A'D' + B'C' + ACD$ \\
-3.5  & 0, 1, 2, 4, 6, 8, 9, 10 (4 vars)       & $Z = B'D' + B'C' + A'D'$ \\
-3.6  & 1, 5, 9, 11, 13, 15 (4 vars)            & $Z = C'D + AD$ \\
-3.7  & 0, 2, 6, 14 (4 vars)                    & $Z = A'B'D' + BCD'$ \\
-3.8  & 0, 1, 2, 3, 6, 8 (4 vars)               & $Z = A'B' + A'CD' + B'C'D'$ \\
-3.9  & 3, 5, 6, 7, 9, 13, 14, 15 (4 vars)      & $Z = BD + BC + A'CD + AC'D$ \\
-3.10 & 0, 2, 4, 8, 10 (4 vars)                  & $Z = B'D' + A'C'D'$ \\
-\hline
-\end{tabular}
+
 
 %%------------------------------------------------------------
 %% 3.1
 %%------------------------------------------------------------
 \vspace{0.5cm}
 
-\textbf{Ejercicio 3.1 detallado - Z=1 en \{2, 3, 5, 6\}}
+\subsubsection{Ejercicio 3.1 detallado - Z=1 en \{2, 3, 5, 6\}}
 
 \vspace{0.3cm}
 
@@ -839,7 +826,7 @@ Pos & A & B & C & Grupo \\
 %%------------------------------------------------------------
 \vspace{0.5cm}
 
-\textbf{Ejercicio 3.2 detallado - Z=1 en \{0, 2, 4, 5, 6, 7, 8, 10, 15\}}
+\subsubsection{Ejercicio 3.2 detallado - Z=1 en \{0, 2, 4, 5, 6, 7, 8, 10, 15\}}
 
 \vspace{0.3cm}
 
@@ -888,7 +875,7 @@ Pos & A & B & C & D & Grupo \\
 %%------------------------------------------------------------
 \vspace{0.5cm}
 
-\textbf{Ejercicio 3.3 detallado - Z=1 en \{5, 7, 8, 10, 12, 14, 21\}}
+\subsubsection{Ejercicio 3.3 detallado - Z=1 en \{5, 7, 8, 10, 12, 14, 21\}}
 
 \vspace{0.3cm}
 
@@ -937,7 +924,7 @@ Pos & A & B & C & D & E & Grupo \\
 %%------------------------------------------------------------
 \vspace{0.5cm}
 
-\textbf{Ejercicio 3.4 detallado - Z=1 en \{0, 1, 2, 3, 4, 6, 8, 9, 11, 15\}}
+\subsubsection{Ejercicio 3.4 detallado - Z=1 en \{0, 1, 2, 3, 4, 6, 8, 9, 11, 15\}}
 
 \vspace{0.3cm}
 
@@ -990,7 +977,7 @@ Pos & A & B & C & D & Grupo \\
 %%------------------------------------------------------------
 \vspace{0.5cm}
 
-\textbf{Ejercicio 3.5 detallado - Z=1 en \{0, 1, 2, 4, 6, 8, 9, 10\}}
+\subsubsection{Ejercicio 3.5 detallado - Z=1 en \{0, 1, 2, 4, 6, 8, 9, 10\}}
 
 \vspace{0.3cm}
 
@@ -1038,7 +1025,7 @@ Pos & A & B & C & D & Grupo \\
 %%------------------------------------------------------------
 \vspace{0.5cm}
 
-\textbf{Ejercicio 3.6 detallado - Z=1 en \{1, 5, 9, 11, 13, 15\}}
+\subsubsection{Ejercicio 3.6 detallado - Z=1 en \{1, 5, 9, 11, 13, 15\}}
 
 \vspace{0.3cm}
 
@@ -1081,7 +1068,7 @@ Pos & A & B & C & D & Grupo \\
 %%------------------------------------------------------------
 \vspace{0.5cm}
 
-\textbf{Ejercicio 3.7 detallado - Z=1 en \{0, 2, 6, 14\}}
+\subsubsection{Ejercicio 3.7 detallado - Z=1 en \{0, 2, 6, 14\}}
 
 \vspace{0.3cm}
 
@@ -1122,7 +1109,7 @@ Pos & A & B & C & D & Grupo \\
 %%------------------------------------------------------------
 \vspace{0.5cm}
 
-\textbf{Ejercicio 3.8 detallado - Z=1 en \{0, 1, 2, 3, 6, 8\}}
+\subsubsection{Ejercicio 3.8 detallado - Z=1 en \{0, 1, 2, 3, 6, 8\}}
 
 \vspace{0.3cm}
 
@@ -1168,7 +1155,7 @@ Pos & A & B & C & D & Grupo \\
 %%------------------------------------------------------------
 \vspace{0.5cm}
 
-\textbf{Ejercicio 3.9 detallado - Z=1 en \{3, 5, 6, 7, 9, 13, 14, 15\}}
+\subsubsection{Ejercicio 3.9 detallado - Z=1 en \{3, 5, 6, 7, 9, 13, 14, 15\}}
 
 \vspace{0.3cm}
 
@@ -1219,7 +1206,7 @@ Pos & A & B & C & D & Grupo \\
 %%------------------------------------------------------------
 \vspace{0.5cm}
 
-\textbf{Ejercicio 3.10 detallado - Z=1 en \{0, 2, 4, 8, 10\}}
+\subsubsection{Ejercicio 3.10 detallado - Z=1 en \{0, 2, 4, 8, 10\}}
 
 \vspace{0.3cm}
 
@@ -1258,6 +1245,208 @@ Pos & A & B & C & D & Grupo \\
 
 \vspace{0.3cm}
 
-\textbf{Nota:} Las soluciones detalladas con el proceso de minimizacion paso a paso estan en el archivo \texttt{ejercicios/practica\_p1\_p2.md}.
+%%============================================================
+%% SECCION 4: MAQUINAS DE ESTADOS FINITOS
+%%============================================================
+\subsection{Maquinas de Estados Finitos}
 
-\end{document}
+%%------------------------------------------------------------
+%% 4.1
+%%------------------------------------------------------------
+\vspace{0.5cm}
+\subsubsection{Ejercicio 4.1 --- Paridad de bits por X e Y}
+
+\vspace{0.2cm}
+\textbf{Enunciado:} Realizar una máquina que posea entradas X e Y y una salida Z. El sistema
+debe calcular la paridad de los bits entrantes por X e Y.
+La salida Z será
+1 si la cantidad total de bits en uno es impar
+0 en caso contrario
+
+\vspace{0.3cm}
+\textbf{Tabla de Verdad:}
+\vspace{0.3cm}
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+$Q_a$ & X & Y & $Q_p$ & Z \\
+\hline
+0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 1 & 1 & 1 \\
+0 & 1 & 0 & 1 & 1 \\
+0 & 1 & 1 & 0 & 0 \\
+1 & 0 & 0 & 1 & 1 \\
+1 & 0 & 1 & 0 & 0 \\
+1 & 1 & 0 & 0 & 0 \\
+1 & 1 & 1 & 1 & 1 \\
+\hline
+\end{tabular}
+\end{center}
+
+\vspace{0.2cm}
+\textbf{Funcion minimizada:}
+$$Z = X \xor Y \xor Q_a$$
+
+\vspace{0.4cm}
+\textbf{Maquina Realizada en CircuitVerse:}
+
+\vspace{0.2cm}
+\begin{center}
+\includegraphics[width=0.9\textwidth]{img/circuito_4_1.png}
+
+\vspace{3.5cm}
+\end{center}
+
+%%------------------------------------------------------------
+%% 4.2
+%%------------------------------------------------------------
+\vspace{0.6cm}
+\subsubsection{Ejercicio 4.2 --- Paridad con habilitacion C}
+
+\vspace{0.2cm}
+\textbf{Enunciado:} Realizar una máquina que posea entradas C, X e Y y una salida Z. El
+sistema debe calcular la paridad de los bits entrantes por X e Y.
+La salida Z será
+1 si la cantidad total de bits en uno es impar y C esta en 1
+0 en caso contrario
+
+\vspace{0.3cm}
+\textbf{Tabla de Verdad:}
+\vspace{0.3cm}
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+$Q_a$ & C & X & Y & $Q_p$ & Z \\
+\hline
+X & 0 & X & X & 0 & 0 \\
+0  & 1 & 0  & 0  & 0 & 0 \\
+0  & 1 & 0  & 1  & 1 & 1 \\
+0  & 1 & 1  & 0  & 1 & 1 \\
+0  & 1 & 1  & 1  & 0 & 0 \\
+1  & 1 & 0  & 0  & 1 & 1 \\
+1  & 1 & 0  & 1  & 0 & 0 \\
+1  & 1 & 1  & 0  & 0 & 0 \\
+1  & 1 & 1  & 1  & 1 & 1 \\
+\hline
+\end{tabular}
+\end{center}
+
+\vspace{0.2cm}
+\textbf{Funcion minimizada:}
+$$Z = C \cdot (X \xor Y \xor Q_a)$$
+
+\vspace{0.4cm}
+\textbf{Maquina Realizada en CircuitVerse:}
+
+\vspace{0.2cm}
+\begin{center}
+\includegraphics[width=0.9\textwidth]{img/circuito_4_2.png}
+\vspace{3.5cm}
+\end{center}
+
+%%------------------------------------------------------------
+%% 4.4
+%%------------------------------------------------------------
+\vspace{0.6cm}
+\subsubsection{Ejercicio 4.4 --- Relacion entre valores anteriores de X e Y}
+
+\vspace{0.2cm}
+\textbf{Enunciado:} Realizar una máquina que posea entradas X e Y y dos salidas Z0 y Z1. El
+sistema debe monitorear la relación entre los valores anteriores de las
+entradas X e Y segun la siguiente tabla de salida:
+
+\vspace{0.3cm}
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+$X_{ant}$ & $Y_{ant}$ & $Z_0$ & $Z_1$ \\
+\hline
+0 & 0 & 1 & 1 \\
+0 & 1 & 0 & 1 \\
+1 & 0 & 1 & 0 \\
+1 & 1 & 1 & 1 \\
+\hline
+\end{tabular}
+\end{center}
+
+\vspace{0.4cm}
+\textbf{Funciones minimizadas:}
+
+$$Z_0 = Y_{ant}' + X_{ant}$$
+
+$$Z_1 = X_{ant}' + Y_{ant}$$
+
+\vspace{0.4cm}
+\textbf{Maquina Realizada en CircuitVerse:}
+
+\vspace{0.2cm}
+\begin{center}
+\includegraphics[width=0.9\textwidth]{img/circuito_4_4.png}
+\vspace{3.5cm}
+\end{center}
+
+%%------------------------------------------------------------
+%% 4.5
+%%------------------------------------------------------------
+\vspace{0.6cm}
+\subsubsection{Ejercicio 4.5 --- Comparacion de numero binario XY anterior vs actual}
+
+\vspace{0.2cm}
+\textbf{Enunciado:} Realizar una máquina que posea entradas X e Y y una salida Z. El sistema
+debe monitorear la relación entre el numero binario formado XY anterior y el
+actual. La salida Z será:
+
+\begin{itemize}
+  \item Z = 0 si $XY_{ant} \leq XY_{act}$
+  \item Z = 1 si $XY_{ant} > XY_{act}$
+\end{itemize}
+
+\vspace{0.3cm}
+\textbf{Tabla de Verdad:}
+\vspace{0.3cm}
+
+\begin{center}
+{\small
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+$X_{ant}$ & $Y_{ant}$ & X & Y & Z \\
+\hline
+0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 1 & 0 \\
+0 & 0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 1 & 0 \\
+0 & 1 & 0 & 0 & 1 \\
+0 & 1 & 0 & 1 & 0 \\
+0 & 1 & 1 & 0 & 0 \\
+0 & 1 & 1 & 1 & 0 \\
+1 & 0 & 0 & 0 & 1 \\
+1 & 0 & 0 & 1 & 1 \\
+1 & 0 & 1 & 0 & 0 \\
+1 & 0 & 1 & 1 & 0 \\
+1 & 1 & 0 & 0 & 1 \\
+1 & 1 & 0 & 1 & 1 \\
+1 & 1 & 1 & 0 & 1 \\
+1 & 1 & 1 & 1 & 0 \\
+\hline
+\end{tabular}
+}
+\end{center}
+
+\vspace{0.4cm}
+\textbf{Funcion minimizada:}
+
+$$Z = X_{ant}\cdot X' \;+\; Y_{ant}\cdot X'\cdot Y' \;+\; X_{ant}\cdot Y_{ant}\cdot Y'$$
+
+\vspace{0.4cm}
+\textbf{Maquina Realizada en CircuitVerse:}
+
+\vspace{0.2cm}
+\begin{center}
+\includegraphics[width=0.9\textwidth]{img/circuito_4_5.png}
+\vspace{3.5cm}
+\end{center}
+
+\end{document}s
