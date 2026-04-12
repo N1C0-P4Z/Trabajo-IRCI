@@ -138,9 +138,25 @@ sistema debe calcular la paridad de los bits entrantes por X e Y. La salida Z se
 
 ---
 
-### Ejercicio 4.3
+### Ejercicio 4.3 — Detector de paridad con habilitación condicional
 
-**Estado:** No incluido en el documento LaTeX. Pendiente de resolver.
+**Estado:** ✓ INCLUIDO EN EL DOCUMENTO LaTeX
+
+**Enunciado:** Realizar una máquina que posea entradas E (estado anterior), C, X e Y y salidas E+1 y Z. 
+El sistema debe detectar la paridad de X e Y cuando E está en 1.
+
+**Tabla de Verdad Simplificada:**
+| E | C | X | Y | E+1 | Z |
+|---|---|---|---|-----|---|
+| 0 | X | X | X | C   | 0 |
+| 1 | 0 | 0 | 1 | 0   | 1 |
+| 1 | 0 | 1 | 0 | 0   | 1 |
+| 1 | 1 | 0 | 1 | 1   | 1 |
+| 1 | 1 | 1 | 0 | 1   | 1 |
+
+**Función minimizada:** `Z = E · (X ⊕ Y)`
+
+**Imagen:** `img/circuito_4_3.png`
 
 ---
 
@@ -212,7 +228,127 @@ Z = Xant·X' + Yant·X'·Y' + Xant·Yant·Y'
 
 **Imagen:** `img/circuito_4_5.png`
 
-## Comandos personalizados en main.tex
+---
+
+### Ejercicio 4.6 — Contador binario creciente
+
+**Estado:** ✓ INCLUIDO EN EL DOCUMENTO LaTeX
+
+**Enunciado:** Realizar una máquina que posea entrada UP y dos salidas Z1 y Z0. El sistema 
+debe comportarse como un contador binario de 2 bits que incrementa cuando UP=1.
+
+**Tabla de Verdad:**
+| UP | Q1 | Q0 | Q1+ | Q0+ | Z1 | Z0 |
+|----|----|----|-----|-----|----|----|
+| 0  | 0  | 0  | 0   | 0   | 0  | 0  |
+| 0  | 0  | 1  | 0   | 1   | 0  | 1  |
+| 0  | 1  | 0  | 1   | 0   | 1  | 0  |
+| 0  | 1  | 1  | 1   | 1   | 1  | 1  |
+| 1  | 0  | 0  | 0   | 1   | 0  | 0  |
+| 1  | 0  | 1  | 1   | 0   | 0  | 1  |
+| 1  | 1  | 0  | 1   | 1   | 1  | 0  |
+| 1  | 1  | 1  | 0   | 0   | 1  | 1  |
+
+**Funciones minimizadas:**
+- `Q0+ = Q0 ⊕ UP`
+- `Q1+ = Q1 ⊕ (Q0 · UP)`
+
+**Imagen:** `img/circuito_4_6.png`
+
+---
+
+### Ejercicio 4.7 — Contador binario creciente con reset
+
+**Estado:** ✓ INCLUIDO EN EL DOCUMENTO LaTeX
+
+**Enunciado:** Contador binario con entrada RESET que lo lleva a 00 cuando RESET=1.
+
+**Funciones minimizadas:**
+- `Q0+ = RESET' · (Q0 ⊕ UP)`
+- `Q1+ = RESET' · (Q1 ⊕ (Q0 · UP))`
+
+**Imagen:** `img/circuito_4_7.png`
+
+---
+
+### Ejercicio 4.8 — Contador binario bidireccional con reset
+
+**Estado:** ✓ INCLUIDO EN EL DOCUMENTO LaTeX (tabla con \resizebox para mejor legibilidad)
+
+**Enunciado:** Contador de 2 bits que puede incrementar (UP) o decrementar (DN), con reset (R).
+
+**Funciones minimizadas:**
+- `Q0+ = R' · (Q0 ⊕ UP ⊕ DN)`
+- `Q1+ = R' · (Q1 ⊕ (UP·DN'·Q0 + DN·UP'·Q0'))`
+
+**Características:**
+- R=1: Reset a 00
+- UP=1, DN=0: Incremento
+- UP=0, DN=1: Decremento
+- UP=DN: Hold (mantiene estado)
+
+**Imagen:** `img/circuito_4_8.png`
+
+---
+
+### Ejercicio 4.9 — Detector de transición de 0 a 1
+
+**Estado:** ✓ INCLUIDO EN EL DOCUMENTO LaTeX
+
+**Enunciado:** Máquina que detecta la transición de X de 0 a 1 y activa la salida Z.
+
+**Tabla de Verdad:**
+| Q | X | Qp | Z |
+|---|---|----|----|
+| 0 | 0 | 0  | 0  |
+| 0 | 1 | 1  | 0  |
+| 1 | 0 | 0  | 1  |
+| 1 | 1 | 1  | 0  |
+
+**Funciones minimizadas:**
+- `Qp = X`
+- `Z = Q · X'`
+
+**Imagen:** `img/circuito_4_9.png`
+
+---
+
+### Ejercicio 4.10 — Máquina de estados de 6 estados
+
+**Estado:** ✓ INCLUIDO EN EL DOCUMENTO LaTeX
+
+**Enunciado:** Máquina con entrada X y salida Z que transiciona entre 6 estados diferentes.
+
+**Funciones minimizadas:**
+- `D1 = Q1' · Q0 · X'`
+- `D0 = X · (Q1' + Q0')`
+- `Z = Q1 · Q0' · X`
+
+**Imagen:** `img/circuito_4_10.png`
+
+---
+
+### Ejercicio 4.11 — Detector XOR entre entrada y estado anterior
+
+**Estado:** ✓ INCLUIDO EN EL DOCUMENTO LaTeX
+
+**Enunciado:** Máquina que detecta cambios en la entrada X (transiciones 01 o 10).
+
+**Tabla de Verdad:**
+| Q | X | Qp | Z |
+|---|---|----|----|
+| 0 | 0 | 0  | 0  |
+| 0 | 1 | 1  | 1  |
+| 1 | 0 | 0  | 1  |
+| 1 | 1 | 1  | 0  |
+
+**Funciones minimizadas:**
+- `Qp = X`
+- `Z = Q ⊕ X`
+
+**Imagen:** `img/circuito_4_11.png`
+
+---
 
 ```latex
 \xor   % ⊕  (XOR)
@@ -226,11 +362,46 @@ Z = Xant·X' + Yant·X'·Y' + Xant·Yant·Y'
 
 ## Pendientes / próximos pasos
 
-1. Insertar capturas de CircuitVerse en los placeholders de los ej. 4.1, 4.2, 4.4, 4.5
-   - Usar `\includegraphics[width=\textwidth]{img/circuito_4_X.png}` dentro del fbox
-   - Crear carpeta `img/` en el proyecto LaTeX
-2. Resolver y agregar ejercicio 4.3
-3. Agregar minimizaciones de salidas Z0, Z1 para ejercicio 4.4
+1. **Agregar enunciados completos** en los espacios reservados de los ejercicios 4.3 a 4.11
+   - Los espacios están marcados en el .tex con comentarios `% Espacio para que el usuario agregue el enunciado`
+
+2. **Insertar capturas de CircuitVerse** para todos los ejercicios (4.1 a 4.11)
+   - Crear carpeta `img/` si no existe
+   - Archivos esperados:
+     - `img/circuito_4_1.png` hasta `img/circuito_4_11.png`
+
+3. **Nota sobre formato de tablas**
+   - Ejercicio 4.8 utiliza `\resizebox{\textwidth}{!}` para mejor legibilidad de tablas grandes
+   - Se puede ajustar manualmente a `\resizebox{0.8\textwidth}{!}` si es necesario
+
+## Estado de completitud
+
+✓ Ejercicios 4.1 a 4.11 completados en main.tex
+✓ Tablas de verdad y funciones minimizadas agregadas
+✓ Descripciones breves en subsubsection para formato uniforme
+✓ Compilación exitosa sin errores LaTeX
+⏳ Pendiente: Enunciados detallados (copiar/pegar desde EJERCICIO 4(3).md)
+⏳ Pendiente: Imágenes de CircuitVerse
+
+## Cambios recientes en el documento
+
+### Actualización (12 de abril de 2026)
+
+**Ejercicios 4.3 a 4.11 - ✓ COMPLETOS**
+
+1. ✓ Agregados todos los ejercicios 4.3 a 4.11 al documento LaTeX
+2. ✓ Tablas de verdad completadas para cada ejercicio
+3. ✓ Funciones minimizadas en formato LaTeX
+4. ✓ Descripciones breves en los títulos (subsubsection)
+5. ✓ Tabla 4.8 optimizada con `\resizebox{\textwidth}{!}` para mejor legibilidad
+6. ✓ Espacios reservados para:
+   - Enunciados detallados
+   - Imágenes de CircuitVerse
+
+**Próximas actividades:**
+- Copiar/pegar enunciados desde EJERCICIO 4(3).md
+- Agregar imágenes de CircuitVerse en la carpeta `img/`
+- Compilar nuevamente después de agregar las imágenes
 
 ## Referencias
 

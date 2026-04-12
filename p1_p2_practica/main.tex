@@ -584,12 +584,6 @@ $01101 + 10010$ (C2 de 01110)
 \textbf{Resultado:} $-1$
 \end{minipage}
 
-\vspace{0.5cm}
-
-\begin{minipage}[t]{0.48\textwidth}
-\subsubsection{Ejercicio 4.11}
-Falta enunciado en el PDF original.
-\end{minipage}
 
 \section{Practica 2: Logica Digital}
 
@@ -1295,7 +1289,7 @@ $$Z = X \xor Y \xor Q_a$$
 \begin{center}
 \includegraphics[width=0.9\textwidth]{img/circuito_4_1.png}
 
-\vspace{3.5cm}
+\vspace{0.3cm}
 \end{center}
 
 %%------------------------------------------------------------
@@ -1343,7 +1337,54 @@ $$Z = C \cdot (X \xor Y \xor Q_a)$$
 \vspace{0.2cm}
 \begin{center}
 \includegraphics[width=0.9\textwidth]{img/circuito_4_2.png}
-\vspace{3.5cm}
+\vspace{0.3cm}
+\end{center}
+
+%%------------------------------------------------------------
+%% 4.3
+%%------------------------------------------------------------
+\vspace{0.3cm}
+\subsubsection{Ejercicio 4.3 --- Detector de paridad con habilitacion condicional}
+
+\vspace{0.2cm}
+\textbf{Enunciado:} Realizar una máquina que posea entradas C, X e Y y una salida Z. El
+sistema debe calcular la paridad de los bits entrantes por X e Y
+La salida Z será
+1 si la cantidad total de bits en uno es impar y C estuvo en 1 en tiempo
+anterior
+0 en caso contrario
+
+\vspace{0.4cm}
+\textbf{Tabla de Verdad:}
+\vspace{0.3cm}
+
+\begin{center}
+{\small
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+E & C & X & Y & $E+1$ & Z \\
+\hline
+0 & X & X & X & C & 0 \\
+1 & 0 & 0 & 1 & 0 & 1 \\
+1 & 0 & 1 & 0 & 0 & 1 \\
+1 & 1 & 0 & 1 & 1 & 1 \\
+1 & 1 & 1 & 0 & 1 & 1 \\
+\hline
+\end{tabular}
+}
+\end{center}
+
+\vspace{0.2cm}
+\textbf{Funcion minimizada:}
+$$Z = E \cdot (X \xor Y)$$
+
+\vspace{0.4cm}
+\textbf{Maquina Realizada en CircuitVerse:}
+
+\vspace{0.2cm}
+\begin{center}
+\includegraphics[width=0.9\textwidth]{img/circuito_4_3.jpeg}
+\vspace{0.3cm}
 \end{center}
 
 %%------------------------------------------------------------
@@ -1385,7 +1426,7 @@ $$Z_1 = X_{ant}' + Y_{ant}$$
 \vspace{0.2cm}
 \begin{center}
 \includegraphics[width=0.9\textwidth]{img/circuito_4_4.png}
-\vspace{3.5cm}
+\vspace{0.3cm}
 \end{center}
 
 %%------------------------------------------------------------
@@ -1446,7 +1487,306 @@ $$Z = X_{ant}\cdot X' \;+\; Y_{ant}\cdot X'\cdot Y' \;+\; X_{ant}\cdot Y_{ant}\c
 \vspace{0.2cm}
 \begin{center}
 \includegraphics[width=0.9\textwidth]{img/circuito_4_5.png}
-\vspace{3.5cm}
+\vspace{0.3cm}
 \end{center}
 
-\end{document}s
+
+%%------------------------------------------------------------
+%% 4.6
+%%------------------------------------------------------------
+\vspace{0.6cm}
+\subsubsection{Ejercicio 4.6 --- Contador binario creciente}
+
+\vspace{0.2cm}
+\textbf{Enunciado:} Realizar una máquina que posea entrada UP y salidas Z1 y Z0. El sistema
+debe comportarse como un contador binario de 2 bits y la salida debe ser el
+valor de la cuenta.
+
+\vspace{0.4cm}
+\textbf{Tabla de Verdad:}
+\vspace{0.3cm}
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+UP & $Q_1$ & $Q_0$ & $Q_1+$ & $Q_0+$ & $Z_1$ & $Z_0$ \\
+\hline
+0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 1 & 0 & 1 & 0 & 1 \\
+0 & 1 & 0 & 1 & 0 & 1 & 0 \\
+0 & 1 & 1 & 1 & 1 & 1 & 1 \\
+1 & 0 & 0 & 0 & 1 & 0 & 0 \\
+1 & 0 & 1 & 1 & 0 & 0 & 1 \\
+1 & 1 & 0 & 1 & 1 & 1 & 0 \\
+1 & 1 & 1 & 0 & 0 & 1 & 1 \\
+\hline
+\end{tabular}
+\end{center}
+
+\vspace{0.4cm}
+\textbf{Funciones minimizadas:}
+
+$$Q_0+ = Q_0 \xor UP$$
+
+$$Q_1+ = Q_1 \xor (Q_0 \cdot UP)$$
+
+\vspace{0.4cm}
+\textbf{Maquina Realizada en CircuitVerse:}
+
+\vspace{0.2cm}
+\begin{center}
+\includegraphics[width=0.9\textwidth]{img/circuito_4_6.jpeg}
+\vspace{0.3cm}
+\end{center}
+
+%%------------------------------------------------------------
+%% 4.7
+%%------------------------------------------------------------
+\vspace{0.3cm}
+\subsubsection{Ejercicio 4.7 --- Contador binario creciente con reset}
+
+\vspace{0.2cm}
+\textbf{Enunciado:} Realizar una máquina que posea entradas RESET y UP (con RESET
+prioritario) y salidas Z1 y Z0. El sistema debe comportarse como un contador
+binario de 2 bits y la salida debe ser el valor de la cuenta.
+
+\vspace{0.4cm}
+\textbf{Tabla de Verdad:}
+\vspace{0.3cm}
+
+\begin{center}
+{\small
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+RESET & UP & $Q_1$ & $Q_0$ & $Q_1+$ & $Q_0+$ & $Z_1$ & $Z_0$ \\
+\hline
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 1 & 0 & 1 & 0 & 1 \\
+0 & 0 & 1 & 0 & 1 & 0 & 1 & 0 \\
+0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 \\
+0 & 1 & 0 & 0 & 0 & 1 & 0 & 0 \\
+0 & 1 & 0 & 1 & 1 & 0 & 0 & 1 \\
+0 & 1 & 1 & 0 & 1 & 1 & 1 & 0 \\
+0 & 1 & 1 & 1 & 0 & 0 & 1 & 1 \\
+1 & X & X & X & 0 & 0 & X & X \\
+\hline
+\end{tabular}
+}
+\end{center}
+
+\vspace{0.4cm}
+\textbf{Funciones minimizadas:}
+
+$$Q_0+ = \overline{\text{RESET}} \cdot (Q_0 \xor UP)$$
+
+$$Q_1+ = \overline{\text{RESET}} \cdot (Q_1 \xor (Q_0 \cdot UP))$$
+
+\vspace{0.4cm}
+\textbf{Maquina Realizada en CircuitVerse:}
+
+\vspace{0.2cm}
+\begin{center}
+\includegraphics[width=0.9\textwidth]{img/circuito_4_7.jpeg}
+\vspace{0.3cm}
+\end{center}
+
+%%------------------------------------------------------------
+%% 4.8
+%%------------------------------------------------------------
+\vspace{0.6cm}
+\subsubsection{Ejercicio 4.8 --- Contador binario bidireccional con reset}
+
+\vspace{0.2cm}
+\textbf{Enunciado:} Realizar una máquina que posea entradas RESET, UP y DOWN (con
+RESET prioritario) y salidas Z1 y Z0. El sistema debe comportarse como un
+contador binario de 2 bits y la salida debe ser el valor de la cuenta.
+
+\vspace{0.4cm}
+\textbf{Tabla de Verdad:}
+\vspace{0.3cm}
+
+\begin{center}
+\resizebox{0.70\textwidth}{!}{
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+\hline
+R & UP & DN & $Q_1$ & $Q_0$ & $Q_1+$ & $Q_0+$ & $Z_1$ & $Z_0$ & Op \\
+\hline
+1 & X & X & X & X & 0 & 0 & X & X & Reset \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & Hold \\
+0 & 0 & 0 & 0 & 1 & 0 & 1 & 0 & 1 & Hold \\
+0 & 0 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & Hold \\
+0 & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & Hold \\
+0 & 0 & 1 & 0 & 0 & 1 & 1 & 0 & 0 & Dec \\
+0 & 0 & 1 & 0 & 1 & 0 & 0 & 0 & 1 & Dec \\
+0 & 0 & 1 & 1 & 0 & 0 & 1 & 1 & 0 & Dec \\
+0 & 0 & 1 & 1 & 1 & 1 & 0 & 1 & 1 & Dec \\
+0 & 1 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & Inc \\
+0 & 1 & 0 & 0 & 1 & 1 & 0 & 0 & 1 & Inc \\
+0 & 1 & 0 & 1 & 0 & 1 & 1 & 1 & 0 & Inc \\
+0 & 1 & 0 & 1 & 1 & 0 & 0 & 1 & 1 & Inc \\
+0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & Hold \\
+0 & 1 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & Hold \\
+0 & 1 & 1 & 1 & 0 & 1 & 0 & 1 & 0 & Hold \\
+0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & Hold \\
+\hline
+\end{tabular}
+}
+\end{center}
+
+\vspace{0.4cm}
+\textbf{Funciones minimizadas:}
+
+$$Q_0+ = \overline{R} \cdot (Q_0 \xor UP \xor \text{DN})$$
+
+$$Q_1+ = \overline{R} \cdot (Q_1 \xor (\text{UP} \cdot \overline{\text{DN}} \cdot Q_0 + \text{DN} \cdot \overline{\text{UP}} \cdot \overline{Q_0}))$$
+
+\vspace{0.4cm}
+\textbf{Maquina Realizada en CircuitVerse:}
+
+\vspace{0.2cm}
+\begin{center}
+\includegraphics[width=0.9\textwidth]{img/circuito_4_8.jpeg}
+\vspace{0.3cm}
+\end{center}
+
+%%------------------------------------------------------------
+%% 4.9
+%%------------------------------------------------------------
+\vspace{0.3cm}
+\subsubsection{Ejercicio 4.9 --- Detector de transicion de 0 a 1}
+
+\vspace{0.2cm}
+\textbf{Enunciado:} Realizar una máquina que posea una entrada X y salida Z. El sistema debe
+detectar la secuencia “10” y poner en alto la salida Z en tal caso.
+
+\vspace{0.4cm}
+\textbf{Tabla de Verdad:}
+\vspace{0.3cm}
+
+\begin{center}
+\resizebox{0.30\textwidth}{!}{
+\begin{tabular}{|c|c|c|c|}
+\hline
+Q & X & $Q_p$ & Z \\
+\hline
+0 & 0 & 0 & 0 \\
+0 & 1 & 1 & 0 \\
+1 & 0 & 0 & 1 \\
+1 & 1 & 1 & 0 \\
+\hline
+\end{tabular}
+}
+\end{center}
+
+\vspace{0.2cm}
+\textbf{Funciones minimizadas:}
+
+$$Q_p = X$$
+
+$$Z = Q \cdot \overline{X}$$
+
+\vspace{0.4cm}
+\textbf{Maquina Realizada en CircuitVerse:}
+
+\vspace{0.2cm}
+\begin{center}
+\includegraphics[width=0.9\textwidth]{img/circuito_4_9.jpeg}
+\vspace{0.3cm}
+\end{center}
+
+%%------------------------------------------------------------
+%% 4.10
+%%------------------------------------------------------------
+\vspace{0.3cm}
+\subsubsection{Ejercicio 4.10 --- Maquina de estados de 6 estados}
+
+\vspace{0.2cm}
+\textbf{Enunciado:} Realizar una máquina que posea una entrada X y salida Z. El sistema debe
+detectar la secuencia “101” y poner en alto la salida Z en tal caso.
+
+\vspace{0.4cm}
+\textbf{Tabla de Verdad:}
+\vspace{0.3cm}
+
+\begin{center}
+\resizebox{0.40\textwidth}{!}{
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+$Q_1Q_0$ & X & $D_1D_0$ & Z \\
+\hline
+00 & 0 & 00 & 0 \\
+00 & 1 & 01 & 0 \\
+01 & 0 & 10 & 0 \\
+01 & 1 & 01 & 0 \\
+10 & 0 & 00 & 0 \\
+10 & 1 & 01 & 1 \\
+\hline
+\end{tabular}
+}
+
+\end{center}
+
+\vspace{0.2cm}
+\textbf{Funciones minimizadas:}
+
+$$D_1 = \overline{Q_1} \cdot Q_0 \cdot \overline{X}$$
+
+$$D_0 = X \cdot (\overline{Q_1} + \overline{Q_0})$$
+
+$$Z = Q_1 \cdot \overline{Q_0} \cdot X$$
+
+\vspace{0.4cm}
+\textbf{Maquina Realizada en CircuitVerse:}
+
+\vspace{0.2cm}
+\begin{center}
+\includegraphics[width=0.9\textwidth]{img/circuito_4_10.jpeg}
+\vspace{0.3cm}
+\end{center}
+
+%%------------------------------------------------------------
+%% 4.11
+%%------------------------------------------------------------
+\vspace{0.3cm}
+\subsubsection{Ejercicio 4.11 --- Detector XOR entre entrada y estado anterior}
+
+\vspace{0.2cm}
+\textbf{Enunciado:} Realizar una máquina que posea una entrada X y salida Z. El sistema debe
+detectar la secuencia “10” o “01” y poner en alto la salida Z en tal caso.
+
+\vspace{0.4cm}
+\textbf{Tabla de Verdad:}
+\vspace{0.3cm}
+
+\begin{center}
+\resizebox{0.30\textwidth}{!}{
+\begin{tabular}{|c|c|c|c|}
+\hline
+Q & X & $Q_p$ & Z \\
+\hline
+0 & 0 & 0 & 0 \\
+0 & 1 & 1 & 1 \\
+1 & 0 & 0 & 1 \\
+1 & 1 & 1 & 0 \\
+\hline
+\end{tabular}
+}
+\end{center}
+
+\vspace{0.2cm}
+\textbf{Funciones minimizadas:}
+
+$$Q_p = X$$
+
+$$Z = Q \xor X$$
+
+\vspace{0.4cm}
+\textbf{Maquina Realizada en CircuitVerse:}
+
+\vspace{0.2cm}
+\begin{center}
+\includegraphics[width=0.9\textwidth]{img/circuito_4_11.jpeg}
+\vspace{0.3cm}
+\end{center}
+
+\end{document}
