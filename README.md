@@ -1,5 +1,12 @@
 # Road Fighter - NES
 
+## Integrantes
+
+* Nicolás Paz Reyes
+* Martín Moloeznik
+* Valentino Aviani
+* Santiago Cañal
+
 ## Descripción del juego
 
 Road Fighter es un juego de carreras clásico de la consola Nintendo Entertainment System (NES). El objetivo es completar varias etapas conduciendo un auto de carreras a través de una autopista mientras se esquivan otros vehículos y se recolecta combustible para no quedar varado.
