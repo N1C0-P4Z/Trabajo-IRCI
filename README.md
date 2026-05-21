@@ -18,9 +18,9 @@ El jugador controla un auto de carreras que se mueve horizontalmente por la pant
 
 ### Obstáculos y enemigos
 La autopista está llena de otros vehículos que circulan a diferentes velocidades:
-- **Autos lentos**: Vehículos comunes que avanzan más despacio que el jugador
-- **Camiones**: Vehículos grandes que ocupan más espacio en la pista
-- **Autos rápidos**: Algunos vehículos que pueden moverse entre carriles
+- **Autos lentos**: Vehículos comunes que avanzan más despacio que el jugador.
+- **Camiones**: Vehículos grandes que ocupan más espacio en la pista.
+- **Autos rápidos**: Algunos vehículos que pueden moverse entre carriles.
 
 Si el jugador choca contra algún vehículo, puede perder velocidad, explotar o salir despedido fuera de la carretera. Salirse hacia los bordes de la pista también puede causar daño.
 
