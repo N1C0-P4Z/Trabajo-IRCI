@@ -15,10 +15,6 @@
 <img src="mapa1/mapa1-frame5-start(v2).png" width="150" alt="Mapa 1 Frame 5">
 <img src="mapa1/mapa1-frame6(transicion1)v3.png" width="150" alt="Mapa 1 Frame 6">
 <img src="mapa1/mapa1-frame7(transicion2)v2.png" width="150" alt="Mapa 1 Frame 7">
-<img src="p1_p2_practica/img/circuito_4_1.png" width="150" alt="Circuito 4.1">
-<img src="p1_p2_practica/img/circuito_4_2.png" width="150" alt="Circuito 4.2">
-<img src="p1_p2_practica/img/circuito_4_4.png" width="150" alt="Circuito 4.4">
-<img src="p1_p2_practica/img/circuito_4_5.png" width="150" alt="Circuito 4.5">
 
 ## Descripción del juego
 
@@ -117,4 +113,3 @@ El tramo final. Una carretera sinuosa que atraviesa una zona boscosa y montaños
 - Diferentes tipos de terreno (asfalto, pasto, agua, roca, bosque) según la etapa
 - Sprites coloridos para los vehículos y elementos del juego
 - Interfaz que muestra puntuación, combustible y etapa actual, con un indicador de progreso mediante banderas
-
