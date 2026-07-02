@@ -2,6 +2,8 @@
 
 ## Galería de Sprites y Assets
 Algunos estan zoomeados para ver mejor, las imagenes reales estan en los .piskel.
+
+
 <img src="player.png" width="150" alt="Player">
 <img src="van.png" width="40" alt="Van">
 <img src="autoBonus.png" width="80" alt="AutoBonus">
