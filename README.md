@@ -1,5 +1,25 @@
 # Road Fighter - NES
 
+## Galería de Sprites y Assets
+
+<img src="player.png" width="150" alt="Player">
+<img src="van.png" width="150" alt="Van">
+<img src="autoBonus.png" width="150" alt="AutoBonus">
+<img src="villanos%20y%20el%20bonus.png" width="150" alt="Villanos y Bonus">
+<img src="explosiones16x16.png" width="150" alt="Explosiones">
+<img src="explosiones-excalado-x20.png" width="150" alt="Explosiones Escala">
+<img src="mapa1/mapa1-frame1(v4).png" width="150" alt="Mapa 1 Frame 1">
+<img src="mapa1/mapa1-frame2(v3).png" width="150" alt="Mapa 1 Frame 2">
+<img src="mapa1/mapa1-frame3(v2).png" width="150" alt="Mapa 1 Frame 3">
+<img src="mapa1/mapa1-frame4-checkpoint(v2).png" width="150" alt="Mapa 1 Frame 4">
+<img src="mapa1/mapa1-frame5-start(v2).png" width="150" alt="Mapa 1 Frame 5">
+<img src="mapa1/mapa1-frame6(transicion1)v3.png" width="150" alt="Mapa 1 Frame 6">
+<img src="mapa1/mapa1-frame7(transicion2)v2.png" width="150" alt="Mapa 1 Frame 7">
+<img src="p1_p2_practica/img/circuito_4_1.png" width="150" alt="Circuito 4.1">
+<img src="p1_p2_practica/img/circuito_4_2.png" width="150" alt="Circuito 4.2">
+<img src="p1_p2_practica/img/circuito_4_4.png" width="150" alt="Circuito 4.4">
+<img src="p1_p2_practica/img/circuito_4_5.png" width="150" alt="Circuito 4.5">
+
 ## Descripción del juego
 
 Road Fighter es una reinterpretación de un juego de carreras clásico de la consola Nintendo Entertainment System (NES). El objetivo es completar varias etapas conduciendo un auto de carreras a través de una autopista mientras se esquivan otros vehículos, se sortean obstáculos y se recolecta combustible para no quedarse varado.
