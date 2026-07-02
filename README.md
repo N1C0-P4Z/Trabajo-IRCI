@@ -3,8 +3,8 @@
 ## Galería de Sprites y Assets
 
 <img src="player.png" width="150" alt="Player">
-<img src="van.png" width="150" alt="Van">
-<img src="autoBonus.png" width="150" alt="AutoBonus">
+<img src="van.png" width="40" alt="Van">
+<img src="autoBonus.png" width="80" alt="AutoBonus">
 <img src="villanos%20y%20el%20bonus.png" width="150" alt="Villanos y Bonus">
 <img src="explosiones16x16.png" width="150" alt="Explosiones">
 <img src="explosiones-excalado-x20.png" width="150" alt="Explosiones Escala">
